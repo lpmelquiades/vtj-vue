@@ -5,15 +5,16 @@ services:
   vtj:
     build:
       context: .
-      target: prod
+      target: dev
     container_name: vtj
     ports:
       - "4173:4173"
+      - "5173:5173"
     stdin_open: true
     tty: true
-    # volumes:
+    volumes:
     #   - ./public:/var/www/public
-    #   - ./src:/var/www/src
+      - ./src:/var/www/src
     #   - ./node_modules:/var/www/node_modules
     #   - ./env.d.ts:/var/www/env.d.ts
     #   - ./index.html:/var/www/index.html
