@@ -1,11 +1,11 @@
-FROM 20.6.0-bullseye-slim AS source
+FROM node:20.6.0-bullseye-slim AS source
 
 WORKDIR /var/www
 
 COPY public/ ./public
 COPY src/ ./src
 
-COPY env.d.ts
+COPY env.d.ts .
 COPY index.html .
 
 COPY package-lock.json .
@@ -32,8 +32,5 @@ ENTRYPOINT ["/usr/local/bin/npm", "run", "dev"]
 FROM source AS prod
 RUN npm ci --only=production
 RUN npm run build
-
-ADD https://github.com/Yelp/dumb-init/releases/download/v1.1.1/dumb-init_1.1.1_amd64 /usr/local/bin/dumb-init
-RUN chmod +x /usr/local/bin/dumb-init
 
 EXPOSE 8080

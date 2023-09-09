@@ -8,7 +8,7 @@ services:
       target: prod
     container_name: vtj
     ports:
-      - "3000:3000"
+      - "6345:8080"
     volumes:
       - ./public:/var/www/public
       - ./src:/var/www/src
