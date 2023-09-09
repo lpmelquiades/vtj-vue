@@ -1,7 +1,7 @@
-sh-notification:
+sh-vtj:
 	docker exec -it vtj sh
 
-logs-notification:
+logs-vtj:
 	docker-compose logs vtj
 
 # --no-cache is a good practice to avoid issues with unfit docker images
@@ -48,10 +48,10 @@ prune:
 
 
 
-vota-skeleton:
-	docker run -dit --name vota-skeleton node:20.6.0-bullseye-slim \
-	&& docker exec -it vota-skeleton sh -c "cd tmp && npm create vue@latest vtj -y" \
-	&& docker cp vota-skeleton:/tmp/vtj/. ${PWD} \
-	&& docker stop vota-skeleton && docker rm -f vota-skeleton \
+vtj-skeleton:
+	docker run -dit --name vtj-skeleton node:20.6.0-bullseye-slim \
+	&& docker exec -it vtj-skeleton sh -c "cd tmp && npm create vue@latest vtj -y" \
+	&& docker cp vtj-skeleton:/tmp/vtj/. ${PWD} \
+	&& docker stop vtj-skeleton && docker rm -f vtj-skeleton \
 	&& ls
 

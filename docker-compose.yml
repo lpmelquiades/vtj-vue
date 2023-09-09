@@ -8,19 +8,21 @@ services:
       target: prod
     container_name: vtj
     ports:
-      - "6345:8080"
-    volumes:
-      - ./public:/var/www/public
-      - ./src:/var/www/src
-      - ./node_modules:/var/www/node_modules
-      - ./env.d.ts:/var/www/env.d.ts
-      - ./index.html:/var/www/index.html
-      - ./package-lock.json:/var/www/package-lock.json
-      - ./package.json:/var/www/package.json
-      - ./tsconfig.app.json:/var/www/tsconfig.app.json
-      - ./tsconfig.json:/var/www/tsconfig.json
-      - ./tsconfig.node.json:/var/www/tsconfig.node.json
-      - ./__tests__:/var/www/__tests__
-      - ./vitest.config.ts:/var/www/vitest.config.ts
-      - ./vite.config.ts:/var/www/vite.config.ts
-      - ./tsconfig.vitest.json:/var/www/tsconfig.vitest.json
+      - "4173:4173"
+    stdin_open: true
+    tty: true
+    # volumes:
+    #   - ./public:/var/www/public
+    #   - ./src:/var/www/src
+    #   - ./node_modules:/var/www/node_modules
+    #   - ./env.d.ts:/var/www/env.d.ts
+    #   - ./index.html:/var/www/index.html
+    #   - ./package-lock.json:/var/www/package-lock.json
+    #   - ./package.json:/var/www/package.json
+    #   - ./tsconfig.app.json:/var/www/tsconfig.app.json
+    #   - ./tsconfig.json:/var/www/tsconfig.json
+    #   - ./tsconfig.node.json:/var/www/tsconfig.node.json
+    #   - ./vite.config.ts:/var/www/vite.config.ts
+    #   - ./__tests__:/var/www/__tests__
+    #   - ./vitest.config.ts:/var/www/vitest.config.ts
+    #   - ./tsconfig.vitest.json:/var/www/tsconfig.vitest.json
